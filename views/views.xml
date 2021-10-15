@@ -1,0 +1,84 @@
+<odoo>
+
+  <!-- Search View -->
+  <record model="ir.ui.view" id="clinic_clinic_search">
+    <field name="name">clinic.clinic.search</field>
+    <field name="model">clinic.clinic</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="name"/>
+        <field name="description"/>
+      </search>
+    </field>
+  </record>
+
+  <!-- list  -->
+  <record id="clinic_clinic_view_tree" model="ir.ui.view">
+    <field name="name">clinic.clinic.view.tree</field>
+    <field name="model">clinic.clinic</field>
+    <field name="arch" type="xml">
+      <tree string="">
+          <field name="name"/>
+          <field name="description"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="clinic_clinic_view_form" model="ir.ui.view">
+    <field name="name">clinic.clinic.view.form</field>
+    <field name="model">clinic.clinic</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="description"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="clinic_clinic_action" model="ir.actions.act_window">
+    <field name="name">Daftar</field>
+    <field name="res_model">clinic.clinic</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Buat menuitem -->
+  <menuitem id="clinic_root_menu" name="Alur Pelayanan" web_icon="klinik,static/description/icon.png">
+    <menuitem id="clinic_sub_menu_pendaftaran" name="Pendaftaran" sequence="10">
+      <menuitem id="clinic_sub_sub_menu_daftar" name="Daftar" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_appointment" name="Appointment" action="clinic_clinic_action" sequence="20"/>
+    </menuitem>
+    <menuitem id="clinic_sub_menu_pemeriksaan" name="Pemeriksaan" sequence="10">
+      <menuitem id="clinic_sub_sub_menu_rekam_medis" name="Rekam Medis" action="clinic_clinic_action" sequence="10"/>
+    </menuitem>
+    <menuitem id="clinic_sub_menu_farmasi" name="Farmasi" sequence="10">
+      <menuitem id="clinic_sub_sub_menu_penjualan_obat" name="Penjualan Obat" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_resep" name="Resep" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_pengambilan_obat" name="Pengambilan Obat" action="clinic_clinic_action" sequence="10"/>
+    </menuitem>
+    <menuitem id="clinic_sub_menu_kasir" name="Kasir" sequence="10">
+      <menuitem id="clinic_sub_sub_menu_pkasir" name="Kasir" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_invoice" name="Invoice" action="clinic_clinic_action" sequence="10"/>
+    </menuitem>
+    <menuitem id="clinic_sub_menu_dpasien" name="Daftar Pasien" action="clinic_clinic_action" sequence="10">
+    </menuitem>
+    <menuitem id="clinic_sub_menu_dpetugas" name="Daftar Petugas" sequence="10">
+      <menuitem id="clinic_sub_sub_menu_apoteker" name="Apoteker" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_admin" name="Admin" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_dkasir" name="Kasir" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_pendaftaran" name="Pendaftaran" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_rmedis" name="Rekam Medis" action="clinic_clinic_action" sequence="10"/>
+    </menuitem>
+    <menuitem id="clinic_sub_menu_ptindakan" name="Produk dan Tindakan" sequence="10">
+      <menuitem id="clinic_sub_sub_menu_produk" name="Produk" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_tindakan" name="Tindakan" action="clinic_clinic_action" sequence="10"/>
+      <menuitem id="clinic_sub_sub_menu_ppromo" name="Paket Promo" action="clinic_clinic_action" sequence="10"/>
+    </menuitem>
+    <menuitem id="clinic_sub_menu_cabang" name="Cabang" action="clinic_clinic_action" sequence="10">
+    </menuitem>
+  </menuitem>
+
+</odoo>
